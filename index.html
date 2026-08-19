@@ -3,72 +3,71 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sentinel AI - Enterprise Security</title>
+    <title>Dawaikart - Digital Marketing & AI Security</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- ===== NAVBAR ===== -->
+    <!-- ===== NAVIGATION (Updated) ===== -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">SENTINEL</div>
-            <div class="nav-links">
-                <a href="#services">Services</a>
-                <a href="#about">About Us</a>
-                <a href="#projects">Projects</a>
-                <a href="#team">Team</a>
-                <a href="#contacts">Contacts</a>
-            </div>
-            <button class="btn-quote">Get Quote</button>
+        <div class="container nav-container">
+            <a href="#" class="logo">Dawaikart</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         </div>
     </nav>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="hero" id="home">
+    <!-- ===== SENTINEL AI HERO SECTION (NEW) ===== -->
+    <section id="home" class="sentinel-hero">
         <!-- Spline 3D Background -->
         <div class="spline-container">
             <div class="spline-wrapper" id="spline-wrapper">
-                <!-- Spline will load here -->
                 <div class="spline-fallback"></div>
             </div>
         </div>
 
         <!-- Dark Overlay -->
-        <div class="overlay"></div>
+        <div class="hero-overlay"></div>
 
-        <!-- Content -->
-        <div class="hero-content">
-            <h1 class="heading animate" style="animation-delay: 0.2s">
-                SENTINEL <span class="highlight">AI</span>
+        <!-- Hero Content -->
+        <div class="sentinel-hero-content">
+            <h1 class="hero-heading animate" style="animation-delay: 0.2s">
+                SENTINEL <span class="highlight-green">AI</span>
             </h1>
             
-            <p class="subheading animate" style="animation-delay: 0.4s">
+            <p class="hero-subheading animate" style="animation-delay: 0.4s">
                 We implement security correctly.
             </p>
             
-            <p class="description animate" style="animation-delay: 0.55s">
+            <p class="hero-description animate" style="animation-delay: 0.55s">
                 Enterprise security systems built in days. AI-powered surveillance deployed with 
                 zero-trust architecture. Smart access control set up for your entire facility. 
                 All of it done right, not just fast.
             </p>
             
-            <div class="cta-buttons animate" style="animation-delay: 0.7s">
-                <button class="btn-primary">Book a Call</button>
-                <button class="btn-secondary">Our Work</button>
+            <div class="hero-cta animate" style="animation-delay: 0.7s">
+                <button class="btn-hero-primary">Book a Call</button>
+                <button class="btn-hero-secondary">Our Work</button>
             </div>
             
-            <p class="trust-line animate" style="animation-delay: 0.85s">
+            <p class="hero-trust animate" style="animation-delay: 0.85s">
                 Trusted security partner. Columbus, OH. 12 systems deployed.
             </p>
 
             <!-- Medicine Drawer Boxes -->
-            <div class="drawers animate" style="animation-delay: 1s">
+            <div class="drawers-container animate" style="animation-delay: 1s">
                 <div class="drawer">
                     <div class="drawer-handle"></div>
                     <div class="drawer-icon">🛡️</div>
@@ -101,7 +100,184 @@
         </div>
     </section>
 
-    <!-- ===== SCRIPTS ===== -->
+    <!-- ===== SERVICES (Your existing section) ===== -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">What We Offer</span>
+                <h2>Our Services</h2>
+                <p>Comprehensive marketing solutions tailored to your business goals.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>SEO &amp; Content</h3>
+                    <p>Boost your rankings with optimized content and smart SEO strategies.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media</h3>
+                    <p>Engage your audience across all major social platforms with creative content.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>PPC Advertising</h3>
+                    <p>Maximize ROI with targeted Google Ads, Facebook Ads, and more.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✉️</div>
+                    <h3>Email Marketing</h3>
+                    <p>Build relationships and drive conversions with effective email campaigns.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Branding &amp; Design</h3>
+                    <p>Create a memorable brand identity with professional design services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Analytics &amp; Reporting</h3>
+                    <p>Make data-driven decisions with detailed performance dashboards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO (Your existing section) ===== -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Our Work</span>
+                <h2>Recent Projects</h2>
+                <p>Real results for real businesses.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-placeholder">📸</div>
+                    <div class="portfolio-info">
+                        <h4>E-commerce Growth</h4>
+                        <p>300% revenue increase in 6 months</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-placeholder">📸</div>
+                    <div class="portfolio-info">
+                        <h4>Social Media Campaign</h4>
+                        <p>1M+ impressions, 50K+ engagements</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-placeholder">📸</div>
+                    <div class="portfolio-info">
+                        <h4>Brand Redesign</h4>
+                        <p>Complete brand overhaul for startup</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT (Your existing section) ===== -->
+    <section id="about" class="about">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="https://via.placeholder.com/400x400/1a1a2e/ffffff?text=About+Us" alt="About Dawaikart" />
+            </div>
+            <div class="about-content">
+                <span class="badge">About Us</span>
+                <h2>We Are <span class="highlight">Dawaikart</span></h2>
+                <p>
+                    Dawaikart is a digital marketing agency dedicated to helping
+                    businesses succeed online. We combine creativity with data to
+                    deliver measurable results for our clients.
+                </p>
+                <ul class="about-list">
+                    <li>✔️ 5+ years of industry experience</li>
+                    <li>✔️ Team of certified marketing professionals</li>
+                    <li>✔️ 500+ successful projects delivered</li>
+                    <li>✔️ 98% client satisfaction rate</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary">Work With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT (Your existing section) ===== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Get In Touch</span>
+                <h2>Let's Work Together</h2>
+                <p>Have a project in mind? Reach out and let's make it happen.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <strong>Email</strong>
+                            <p>dawaikartofficial@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Location</strong>
+                            <p>Your City, Your Country</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required />
+                    <input type="email" placeholder="Your Email" required />
+                    <input type="text" placeholder="Subject" />
+                    <textarea rows="5" placeholder="Tell us about your project..."></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER (Your existing section) ===== -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div>
+                <h3>Dawaikart</h3>
+                <p>Digital Marketing Agency</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+                    &copy; 2026 Dawaikart. All rights reserved.
+                </p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@splinetool/runtime@1.0.1/build/runtime.min.js"></script>
     <script src="script.js"></script>
 </body>
