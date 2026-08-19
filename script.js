@@ -1,8 +1,54 @@
-// ===== SPLINE 3D LOADER =====
+// ===== EXISTING FUNCTIONALITY =====
+// Keep your existing functions (toggleMenu, smooth scroll, form handler, etc.)
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('active');
+    });
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+document.querySelector('.contact-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    console.log('Form submitted!');
+    alert('Thank you for your message! We will get back to you soon.');
+    this.reset();
+});
+
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(10, 10, 26, 0.95)';
+        navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
+    } else {
+        navbar.style.background = 'rgba(10, 10, 26, 0.9)';
+        navbar.style.boxShadow = 'none';
+    }
+});
+
+// ===== SENTINEL AI HERO FUNCTIONALITY (NEW) =====
+
+// Load Spline 3D Scene
 document.addEventListener('DOMContentLoaded', function() {
     const wrapper = document.getElementById('spline-wrapper');
+    if (!wrapper) return;
     
-    // Create Spline canvas container
     const canvasContainer = document.createElement('div');
     canvasContainer.style.width = '100%';
     canvasContainer.style.height = '100%';
@@ -10,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
     canvasContainer.style.inset = '0';
     wrapper.appendChild(canvasContainer);
     
-    // Load Spline Runtime
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/@splinetool/runtime@1.0.1/build/runtime.min.js';
     script.onload = function() {
@@ -22,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 console.log('Spline 3D scene loaded successfully!');
             } else {
-                console.warn('SplineRuntime not found, using fallback');
                 showFallback();
             }
         } catch (error) {
@@ -30,36 +74,18 @@ document.addEventListener('DOMContentLoaded', function() {
             showFallback();
         }
     };
-    
     script.onerror = function() {
-        console.warn('Failed to load Spline, using fallback');
         showFallback();
     };
-    
     document.head.appendChild(script);
     
     function showFallback() {
         const fallback = wrapper.querySelector('.spline-fallback');
         if (fallback) {
             fallback.style.display = 'block';
-            // Add animated gradient background as fallback
             fallback.style.background = 'linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #0a0a1a 100%)';
             fallback.style.backgroundSize = '400% 400%';
             fallback.style.animation = 'gradientMove 8s ease infinite';
-            
-            // Add keyframes for gradient animation if not exists
-            if (!document.getElementById('fallback-styles')) {
-                const style = document.createElement('style');
-                style.id = 'fallback-styles';
-                style.textContent = `
-                    @keyframes gradientMove {
-                        0% { background-position: 0% 50%; }
-                        50% { background-position: 100% 50%; }
-                        100% { background-position: 0% 50%; }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
         }
     }
 });
@@ -72,8 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {
         drawer.addEventListener('click', function() {
             const title = this.querySelector('h4')?.textContent || 'Drawer';
             const icon = this.querySelector('.drawer-icon')?.textContent || '📦';
+            const desc = this.querySelector('p')?.textContent || 'Feature details coming soon.';
             
-            // Create a popup effect
             const popup = document.createElement('div');
             popup.style.cssText = `
                 position: fixed;
@@ -83,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 background: #1a1a2e;
                 padding: 2rem 3rem;
                 border-radius: 1rem;
-                border: 1px solid hsl(119, 99%, 46%);
+                border: 1px solid #77ff77;
                 box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
                 z-index: 1000;
                 text-align: center;
@@ -92,25 +118,25 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             popup.innerHTML = `
                 <div style="font-size: 3rem; margin-bottom: 1rem;">${icon}</div>
-                <h3 style="color: #fff; margin-bottom: 0.5rem;">${title}</h3>
-                <p style="color: hsl(var(--muted-foreground)); font-size: 0.9rem; margin-bottom: 1.5rem;">
-                    ${this.querySelector('p')?.textContent || 'Feature details coming soon.'}
+                <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: Sora, sans-serif;">${title}</h3>
+                <p style="color: #999; font-size: 0.9rem; margin-bottom: 1.5rem; font-family: Sora, sans-serif;">
+                    ${desc}
                 </p>
                 <button onclick="this.closest('div').remove(); document.querySelector('.popup-overlay')?.remove();" 
                         style="
                             padding: 0.5rem 2rem;
-                            background: hsl(var(--primary));
-                            color: hsl(var(--primary-foreground));
+                            background: #77ff77;
+                            color: #000;
                             border: none;
                             border-radius: 0.5rem;
                             cursor: pointer;
                             font-weight: 600;
+                            font-family: Sora, sans-serif;
                         ">
                     Close
                 </button>
             `;
             
-            // Create overlay
             const overlay = document.createElement('div');
             overlay.className = 'popup-overlay';
             overlay.style.cssText = `
@@ -132,41 +158,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ===== NAVBAR SCROLL EFFECT =====
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(8, 8, 20, 0.9)';
-        navbar.style.backdropFilter = 'blur(10px)';
-        navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.05)';
-    } else {
-        navbar.style.background = 'transparent';
-        navbar.style.backdropFilter = 'none';
-        navbar.style.borderBottom = 'none';
-    }
-});
-
-// ===== SMOOTH SCROLL FOR NAV LINKS =====
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId && targetId !== '#') {
-            const target = document.querySelector(targetId);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
-    });
-});
-
-// ===== CTA BUTTON HANDLERS =====
+// ===== HERO CTA BUTTON HANDLERS =====
 document.addEventListener('DOMContentLoaded', function() {
-    const bookCallBtn = document.querySelector('.btn-primary');
-    const ourWorkBtn = document.querySelector('.btn-secondary');
+    const bookCallBtn = document.querySelector('.btn-hero-primary');
+    const ourWorkBtn = document.querySelector('.btn-hero-secondary');
     
     if (bookCallBtn) {
         bookCallBtn.addEventListener('click', function() {
@@ -179,13 +174,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('🛡️ Our Work\n\nWe\'ve deployed security systems for:\n\n🏢 Enterprise Corporations\n🏥 Healthcare Facilities\n🏫 Educational Institutions\n🏭 Industrial Complexes\n\nContact us for case studies!');
         });
     }
-    
-    const quoteBtn = document.querySelector('.btn-quote');
-    if (quoteBtn) {
-        quoteBtn.addEventListener('click', function() {
-            alert('💬 Get a Quote\n\nFill out our quick form:\n\n1. Your name\n2. Company name\n3. Number of locations\n4. Security needs\n\nWe\'ll respond within 2 hours!');
-        });
-    }
 });
 
 // ===== KEYBOARD SHORTCUT: ESC to close popups =====
@@ -196,7 +184,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// ===== ADD FADE-IN ANIMATION KEYFRAMES =====
+// ===== ADD FADE-IN ANIMATION =====
 (function addKeyframes() {
     const style = document.createElement('style');
     style.textContent = `
@@ -214,4 +202,3 @@ document.addEventListener('keydown', function(e) {
 
 console.log('🛡️ Sentinel AI - Enterprise Security Platform');
 console.log('🔐 Zero-Trust Architecture | 🤖 AI Surveillance | 📊 Security Analytics');
-console.log('📞 Contact: +1 (555) 123-4567');
