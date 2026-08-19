@@ -1,158 +1,23 @@
-/* ===== RESET & BASE ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ===== YOUR EXISTING STYLES GO HERE ===== */
+/* (Keep all your existing styles for services, portfolio, about, contact, footer) */
 
-:root {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 96%;
-    --primary: 119 99% 46%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 18%;
-    --secondary-foreground: 0 0% 96%;
-    --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 119 99% 46%;
-    --accent-foreground: 0 0% 4%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 119 99% 46%;
-    --radius: 0.5rem;
-    --nav-button: 0 0% 18%;
-    --hero-bg: 0 0% 8%;
-}
+/* ============================================ */
+/* ===== SENTINEL AI HERO STYLES (NEW) ===== */
+/* ============================================ */
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Sora', sans-serif;
-    background: hsl(var(--hero-bg));
-    color: hsl(var(--foreground));
-    min-height: 100vh;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fade-up {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-        filter: blur(4px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
-
-@keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-.animate {
-    opacity: 0;
-    animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* ===== NAVBAR ===== */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    padding: 1.25rem 2rem;
-    background: transparent;
-}
-
-@media (min-width: 768px) {
-    .navbar {
-        padding: 1.25rem 4rem;
-    }
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo {
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    color: hsl(var(--foreground));
-}
-
-.nav-links {
-    display: none;
-    gap: 2rem;
-}
-
-@media (min-width: 768px) {
-    .nav-links {
-        display: flex;
-    }
-}
-
-.nav-links a {
-    font-size: 0.875rem;
-    color: hsl(var(--muted-foreground));
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: hsl(var(--foreground));
-}
-
-.btn-quote {
-    display: none;
-    padding: 0.625rem 1.5rem;
-    background: hsl(var(--nav-button));
-    color: hsl(var(--foreground));
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-@media (min-width: 768px) {
-    .btn-quote {
-        display: inline-flex;
-    }
-}
-
-.btn-quote:hover {
-    background: hsl(var(--nav-button) / 0.8);
-    transform: scale(0.97);
-}
-
-/* ===== HERO ===== */
-.hero {
+/* Hero Section */
+.sentinel-hero {
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: flex-end;
-    background: hsl(var(--hero-bg));
+    background: #0a0a1a;
     overflow: hidden;
+    margin-top: 0;
+    padding-top: 0;
 }
 
-/* ===== SPLINE 3D BACKGROUND ===== */
+/* Spline 3D Background */
 .spline-container {
     position: absolute;
     inset: 0;
@@ -168,7 +33,8 @@ body {
 .spline-fallback {
     position: absolute;
     inset: 0;
-    background: hsl(var(--hero-bg));
+    background: #0a0a1a;
+    display: none;
 }
 
 #spline-canvas {
@@ -176,8 +42,8 @@ body {
     height: 100% !important;
 }
 
-/* ===== OVERLAY ===== */
-.overlay {
+/* Hero Overlay */
+.hero-overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
@@ -185,8 +51,8 @@ body {
     pointer-events: none;
 }
 
-/* ===== HERO CONTENT ===== */
-.hero-content {
+/* Hero Content */
+.sentinel-hero-content {
     position: relative;
     z-index: 10;
     pointer-events: none;
@@ -197,70 +63,92 @@ body {
 }
 
 @media (min-width: 640px) {
-    .hero-content {
+    .sentinel-hero-content {
         max-width: 28rem;
         padding: 8rem 2.5rem 2.5rem;
     }
 }
 
 @media (min-width: 1024px) {
-    .hero-content {
+    .sentinel-hero-content {
         max-width: 42rem;
         padding: 8rem 2.5rem 2.5rem;
     }
 }
 
-/* ===== HEADING ===== */
-.heading {
+/* Animations */
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.animate {
+    opacity: 0;
+    animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hero Heading */
+.hero-heading {
+    font-family: 'Sora', sans-serif;
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.05em;
-    color: hsl(var(--foreground));
+    color: #f0f0f0;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
 }
 
 @media (min-width: 768px) {
-    .heading {
+    .hero-heading {
         margin-bottom: 1rem;
     }
 }
 
-.heading .highlight {
-    color: hsl(var(--primary));
+.hero-heading .highlight-green {
+    color: #77ff77;
 }
 
-/* ===== SUBHEADING ===== */
-.subheading {
+/* Hero Subheading */
+.hero-subheading {
+    font-family: 'Sora', sans-serif;
     font-size: clamp(1.125rem, 2.5vw, 1.875rem);
     font-weight: 300;
-    color: hsl(var(--foreground) / 0.8);
+    color: rgba(240, 240, 240, 0.8);
     margin-bottom: 0.75rem;
 }
 
 @media (min-width: 768px) {
-    .subheading {
+    .hero-subheading {
         margin-bottom: 1.5rem;
     }
 }
 
-/* ===== DESCRIPTION ===== */
-.description {
+/* Hero Description */
+.hero-description {
+    font-family: 'Sora', sans-serif;
     font-size: clamp(0.875rem, 1.5vw, 1.25rem);
     font-weight: 300;
-    color: hsl(var(--muted-foreground));
+    color: #999;
     margin-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
-    .description {
+    .hero-description {
         margin-bottom: 2rem;
     }
 }
 
-/* ===== CTA BUTTONS ===== */
-.cta-buttons {
+/* Hero CTA Buttons */
+.hero-cta {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
@@ -268,63 +156,65 @@ body {
     pointer-events: auto;
 }
 
-.cta-buttons button {
+.hero-cta button {
     padding: 0.75rem 1.5rem;
     font-size: 0.875rem;
     border: none;
     border-radius: 0.125rem;
     cursor: pointer;
     transition: all 0.2s ease;
+    font-family: 'Sora', sans-serif;
 }
 
 @media (min-width: 768px) {
-    .cta-buttons button {
+    .hero-cta button {
         padding: 1rem 2rem;
     }
 }
 
-.btn-primary {
-    background: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
+.btn-hero-primary {
+    background: #77ff77;
+    color: #000;
 }
 
-.btn-primary:hover {
+.btn-hero-primary:hover {
     filter: brightness(1.1);
 }
 
-.btn-primary:active {
+.btn-hero-primary:active {
     transform: scale(0.97);
 }
 
-.btn-secondary {
+.btn-hero-secondary {
     background: #ffffff;
-    color: hsl(var(--background));
+    color: #0a0a1a;
 }
 
-.btn-secondary:hover {
+.btn-hero-secondary:hover {
     filter: brightness(0.9);
 }
 
-.btn-secondary:active {
+.btn-hero-secondary:active {
     transform: scale(0.97);
 }
 
-/* ===== TRUST LINE ===== */
-.trust-line {
+/* Hero Trust Line */
+.hero-trust {
+    font-family: 'Sora', sans-serif;
     font-size: 0.75rem;
     font-weight: 300;
-    color: hsl(var(--muted-foreground) / 0.6);
+    color: rgba(153, 153, 153, 0.6);
     margin-top: 1rem;
 }
 
 @media (min-width: 768px) {
-    .trust-line {
+    .hero-trust {
         margin-top: 1.5rem;
     }
 }
 
 /* ===== MEDICINE DRAWERS ===== */
-.drawers {
+.drawers-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
@@ -334,14 +224,14 @@ body {
 }
 
 @media (min-width: 640px) {
-    .drawers {
+    .drawers-container {
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
     }
 }
 
 @media (min-width: 1024px) {
-    .drawers {
+    .drawers-container {
         margin-top: 3rem;
         gap: 1.5rem;
     }
@@ -367,7 +257,7 @@ body {
 
 .drawer:hover {
     transform: translateY(-5px);
-    border-color: hsl(var(--primary));
+    border-color: #77ff77;
     box-shadow: 0 10px 40px rgba(119, 255, 119, 0.1);
 }
 
@@ -391,7 +281,7 @@ body {
     width: 2.5rem;
     height: 0.25rem;
     border-radius: 9999px;
-    background: hsl(var(--primary));
+    background: #77ff77;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -417,9 +307,10 @@ body {
 }
 
 .drawer h4 {
+    font-family: 'Sora', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
-    color: hsl(var(--foreground));
+    color: #f0f0f0;
     margin-bottom: 0.25rem;
 }
 
@@ -430,8 +321,9 @@ body {
 }
 
 .drawer p {
+    font-family: 'Sora', sans-serif;
     font-size: 0.625rem;
-    color: hsl(var(--muted-foreground));
+    color: #999;
     line-height: 1.5;
     opacity: 0.8;
 }
@@ -445,7 +337,7 @@ body {
 .drawer-pull {
     width: 2rem;
     height: 0.125rem;
-    background: hsl(var(--primary) / 0.3);
+    background: rgba(119, 255, 119, 0.3);
     border-radius: 9999px;
     margin: 0.5rem auto 0;
     transition: all 0.3s ease;
@@ -453,12 +345,12 @@ body {
 
 .drawer:hover .drawer-pull {
     width: 3rem;
-    background: hsl(var(--primary));
+    background: #77ff77;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE FOR DRAWERS ===== */
 @media (max-width: 480px) {
-    .drawers {
+    .drawers-container {
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
     }
@@ -485,3 +377,13 @@ body {
         margin-top: 0.25rem;
     }
 }
+
+/* ===== FALLBACK GRADIENT ANIMATION ===== */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== YOUR EXISTING STYLES CONTINUE BELOW ===== */
+/* (Your original CSS for navbar, services, portfolio, about, contact, footer) */
